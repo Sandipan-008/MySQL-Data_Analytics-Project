@@ -4,7 +4,7 @@ SELECT pizza_types.category,
        ROUND(SUM(order_datails.quantity * pizzas.price) /
              (SELECT round(SUM(order_datails.quantity * pizzas.price),2) As total_Sales
               FROM order_datails
-              JOIN pizzas ON pizzas.pizza_id = order_datails.pizza_id) * 100, 0) AS revenue
+              JOIN pizzas ON pizzas.pizza_id = order_datails.pizza_id) * 100, 0) AS revenue 
 FROM pizza_types
 JOIN pizzas ON pizza_types.pizza_type_id = pizzas.pizza_type_id
 JOIN order_datails ON order_datails.pizza_id = pizzas.pizza_id
